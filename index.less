@@ -1,0 +1,131 @@
+@Red-Apple: rgb(192,0,0);
+@Cherry: rgb(255,0,0);
+@Strawberry: rgb(247, 16, 44);
+@Grapefruit: rgb(231,91,40);//Going into retirement.
+@Orange: rgb(255,100,0);
+@Banana: rgb(150,150,0);//Going into retirement.
+@Mango: rgb(252, 179, 15);
+@Lemon: rgb(200,200,0);//This color is not accurately named.
+@Pear: rgb(208, 255, 20);//Too bright to see!
+@Green-Apple: rgb(100,192,0);//Going into retirement.
+@Lime: rgb(0,220,0);
+@Blue-Razzberry: rgb(0,150,200);
+@Blueberry: rgb(0,0,200);
+@Blackberry: rgb(50,0,100);//Going into retirement.
+@Grape: rgb(150,0,190);
+@Raspberry: rgb(231, 65, 124);
+
+@ColorC:  @Red-Apple;
+@ColorDb: @Strawberry;
+@ColorD:  @Orange;
+@ColorEb: @Mango;
+@ColorE:  @Lemon;
+@ColorF:  @Pear;
+@ColorGb: @Green-Apple;
+@ColorG:  @Lime;
+@ColorAb: @Blue-Razzberry;
+@ColorA:  @Blueberry;
+@ColorBb: @Grape;
+@ColorB:  @Raspberry;
+pre {
+	font-weight: bold;
+	font-size: 1em;
+}
+.chordZ(@color: #BBB){
+	color: @color;
+	& when(hsvvalue(@color) > 95%) and (lightness(@color) > 51%){
+		text-shadow: 1px 1px 1px black;
+	}
+}
+.tabs, .chord0, .chordC{/*Red Apple*/
+	.chordZ(@ColorC);
+	font-weight: bold;
+}
+.chord1, .chord-11, .chordDb{
+	.chordZ(@ColorDb)
+}
+.chord2, .chord-10, .chordD{
+	.chordZ(@ColorD);
+}
+.chord3, .chord-9, .chordEb{
+	.chordZ(@ColorEb);
+}
+.chord4, .chord-8, .chordE{
+	.chordZ(@ColorE);
+}
+.chord5, .chord-7, .chordF{
+	.chordZ(@ColorF);
+}
+.chord6, .chord-6, .chordGb{/*Green Apple*/
+	.chordZ(@ColorGb);
+}
+.chord7, .chord-5, .chordG{/*Lime*/
+	.chordZ(@ColorG);
+}
+.chord8, .chord-4, .chordAb{/*Blue Razzberry*/
+	.chordZ(@ColorAb);
+}
+.chord9, .chord-3, .chordA{/*Blueberry*/
+	.chordZ(@ColorA);
+}
+.chord10, .chord-2, .chordBb{
+	.chordZ(@ColorBb);
+}
+.chord11, .chord-1, .chordB{
+	.chordZ(@ColorB);
+}
+
+.btn-Z(@color: #999){
+	margin-top: 1em;
+	color: white;
+	background-color: @color;
+	border-color: @color - #222;
+	& when(hsvvalue(@color) > 95%) and (lightness(@color) > 51%){
+		text-shadow: 1px 1px 1px black;
+	}
+	&:hover{
+		color: white;
+		background-color: @color - #111;
+		border-color: @color - #333;
+	}
+}
+.btn-Z{
+	.btn-Z;
+};
+
+.btn-C{
+	.btn-Z(@ColorC);
+}
+.btn-Db{
+	.btn-Z(@ColorDb);
+}
+.btn-D{
+	.btn-Z(@ColorD);
+}
+.btn-Eb{
+	.btn-Z(@ColorEb);
+}
+.btn-E{
+	.btn-Z(@ColorE);
+}
+.btn-F{
+	.btn-Z(@ColorF);
+}
+.btn-Gb{
+	.btn-Z(@ColorGb);
+}
+.btn-G{
+	.btn-Z(@ColorG);
+}
+.btn-Ab{
+	.btn-Z(@ColorAb);
+}
+.btn-A{
+	.btn-Z(@ColorA);
+}
+.btn-Bb{
+	.btn-Z(@ColorBb);
+}
+.btn-B{
+	.btn-Z(@ColorB);
+}
