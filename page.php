@@ -25,6 +25,7 @@ function toc(){
 			$toc .= "<li><a href=?song=$matches[1]>" . $line . "</a>";
 		}
 		if( preg_match("/^{Verse: ?(.*)}/i", $line, $matches)) $toc .= " ($matches[1])";
+		if( preg_match("/^{Key: ?(.*)}/i", $line, $matches)) $toc .= " ($matches[1])";
 		if( preg_match("(^{p\d+(\(\S\S?\S?\))?})", $line)) $toc .= " (Reviewed)";
 		if( preg_match( "/\{p?\d*\((.+m?)\)\}/", $line, $matches) ) $toc .= " ($matches[1])";
 
@@ -98,11 +99,13 @@ function load_song( $number, $transp = 0 )
 			}
 		}
 
-		if( preg_match( "/\{p?\d*\((.+m?)\)\}/", $line, $matches) )
+		if ( preg_match( "/\{p?\d*\((.+m?)\)\}/", $line, $matches)
+			|| preg_match("/^{Key: ?(.*)}/i", $line, $matches)
+		)
 		{
 			if ( isset( $suggestedSong[$current_song]))
 			{
-				$suggestedSong[$current_song]['key'] = $matches[1];				
+				$suggestedSong[$current_song]['key'] = $matches[1];
 			}
 			if ( $current_song === $number )
 			{
