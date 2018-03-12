@@ -69,6 +69,8 @@ function refToNum( $ref )
  */
 function load_song( $number, $transp = 0 )
 {
+	// Song suggestions are based on the minute you loaded the page
+	mt_srand( time()/60 );
 	$handle = fopen("inputfile.txt", "r");
 	if( ! $transp ) $transp = 0;
 
@@ -93,7 +95,7 @@ function load_song( $number, $transp = 0 )
 		{
 			$allsongs[$matches[1]] = $line;
 			$current_song = $matches[1];
-			if( rand(0,100) < 5 )
+			if( mt_rand(0,100) < 5 )
 			{
 				$suggestedSong[$current_song]['title'] = $line;
 			}
