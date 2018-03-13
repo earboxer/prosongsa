@@ -404,5 +404,5 @@ function transpadd( $fromkey, $integer )
 	$chords["Bb"] = $chords["A#"];
 	$ochords = array( "C","Db","D","Eb","E","F","Gb","G","Ab","A","Bb","B" );
 	$fromkey = trim($fromkey, 'm');
-	return $ochords[($chords[$fromkey] + $integer)%12];
+	return $ochords[($chords[$fromkey] + $integer + 24)%12];
 }
