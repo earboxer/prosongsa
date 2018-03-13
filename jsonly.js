@@ -29,10 +29,13 @@ function do_transpose()
 		console.log($(this));
 		var oldKey = $(this).attr('data-key');
 		var newKey = transpadd(oldKey, transp - lastTransp);
-		$(this).removeClass('btn-'+oldKey);
-		$(this).addClass('btn-'+newKey);
-		$(this).attr('data-key', newKey);
-		$(this).text( $(this).attr('data-words') + newKey );
+		if ( typeof newKey !== 'undefined' )
+		{
+			$(this).removeClass('btn-'+oldKey);
+			$(this).addClass('btn-'+newKey);
+			$(this).attr('data-key', newKey);
+			$(this).text( $(this).attr('data-words') + newKey );
+		}
 		var tt = parseInt($(this).attr('href').match(/transp=(.+)/)[1]);
 		tt = ( transp - lastTransp + 24 + tt)%12;
 		var newhref = $(this).attr('href').match(/(.*?&transp=).+/)[1] + tt;

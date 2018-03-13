@@ -157,7 +157,6 @@ function renderEasyTransp( $transp, $num, $songKeys = array() )
 	//up two semitones
 	$classT = 'btn col-xs-12';
 	$nsongKey = 'Z';
-	$data = '';
 	$words = "Transposed up 2 semitones";
 	if (isset ( $songKeys[0] ) )
 	{
@@ -167,11 +166,8 @@ function renderEasyTransp( $transp, $num, $songKeys = array() )
 		$presentKey = transpadd( $origKey, $transp );
 		$s .= getKeyButton( "Transpose down to", $transp - 2, $pastKey, $num, $classT );
 		$s .= getKeyButton( "Current Key: ", $transp, $presentKey, $num, $classT );
-		$data = "data-key='$presentKey' data-words='Current Key: '";
-
 		$nsongKey = transpadd( $presentKey, 2) ?: 'Z';
 		$words = "Transpose up to ";
-		$data = "data-key='$nsongKey' data-words='$words'";
 	}
 	$s .= getKeyButton( $words, $transp + 2, $nsongKey, $num, $classT );
 
@@ -182,7 +178,7 @@ function getKeyButton( $text, $value, $key, $num, $classT )
 {
 	$zkey = $key ?: 'Z';
 	$key = ($key == 'Z') ? '' : $key;
-	return "<a href='?song=$num&transp=$value' class='$classT btn-$zkey' $data>"
+	return "<a href='?song=$num&transp=$value' class='$classT btn-$zkey' data-key='$key' data-words='$text '>"
 		. "$text $key</a>";
 }
 

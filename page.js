@@ -104,8 +104,9 @@ function transpadd( fromkey, integer )
 	chords["Eb"] = chords["D#"];
 	chords["Gb"] = chords["F#"];
 	chords["Ab"] = chords["G#"];
-	chords["Bb"] = chords["A#"];	
+	chords["Bb"] = chords["A#"];
 	var ochords = [ "C","Db","D","Eb","E","F","Gb","G","Ab","A","Bb","B" ];
 
-	return ochords[(parseInt(chords[fromkey]) + integer + 24)%12];
+	var val = ochords[(parseInt(chords[fromkey]) + integer + 24)%12];
+	return val;
 }
