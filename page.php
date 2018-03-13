@@ -144,7 +144,8 @@ function load_song( $number, $transp = 0 )
 	}
 
 	return
-		renderEasyTransp( $transp, $number, $songKeys )
+		renderNavButtons( $number )
+		. renderEasyTransp( $transp, $number, $songKeys )
 		. "<pre>" . $song . "</pre>\n"
 		. renderNavButtons( $number )
 		. renderSS($suggestedSong, $songKeys, $transp);
@@ -160,23 +161,29 @@ function renderEasyTransp( $transp, $num, $songKeys = array() )
 	$words = "Transposed up 2 semitones";
 	if (isset ( $songKeys[0] ) )
 	{
-		$classT = 'btn col-xs-6';
+		$classT = 'btn col-xs-4';
 		$origKey = $songKeys[0];
+		$pastKey = transpadd( $origKey, $transp - 2 );
 		$presentKey = transpadd( $origKey, $transp );
+		$s .= getKeyButton( "Transpose down to", $transp - 2, $pastKey, $num, $classT );
+		$s .= getKeyButton( "Current Key: ", $transp, $presentKey, $num, $classT );
 		$data = "data-key='$presentKey' data-words='Current Key: '";
-		$s .= "\t<a href='?song=$num&transp=$transp' class='$classT btn-$presentKey' $data>"
-			. "Current Key $presentKey</a>\n";
+
 		$nsongKey = transpadd( $presentKey, 2) ?: 'Z';
-		$words = "Transposed up to ";
+		$words = "Transpose up to ";
 		$data = "data-key='$nsongKey' data-words='$words'";
-		$words .= $nsongKey;	
 	}
-	$tt = $transp + 2;
-	$msg = 
-	$s .= "\t<a href='?song=$num&transp=$tt' class='$classT btn-$nsongKey' $data>"
-		. "$words</a>\n";
-	//favorite keys
+	$s .= getKeyButton( $words, $transp + 2, $nsongKey, $num, $classT );
+
 	return $s;
+}
+
+function getKeyButton( $text, $value, $key, $num, $classT )
+{
+	$zkey = $key ?: 'Z';
+	$key = ($key == 'Z') ? '' : $key;
+	return "<a href='?song=$num&transp=$value' class='$classT btn-$zkey' $data>"
+		. "$text $key</a>";
 }
 
 function renderNavButtons( $number )
