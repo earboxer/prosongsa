@@ -20,7 +20,7 @@ function toc(){
 			mb_convert_encoding( $line, "HTML-ENTITIES", "UTF-8" )
 		);
 		$matches = array();
-		if( preg_match("(^(X?C?\d+)\. )", $line, $matches))
+		if( preg_match("(^(X?C?B?\d+)\. )", $line, $matches))
 		{
 			$toc .= "<li><a href=?song=$matches[1]>" . $line . "</a>";
 		}
@@ -91,7 +91,7 @@ function load_song( $number, $transp = 0 )
 
 		// If we see a number, then that is what song we are on.
 		$matches = array();
-		if ( preg_match("(^(X?C?\d+)\. )", $line, $matches) )
+		if ( preg_match("(^(X?C?B?\d+)\. )", $line, $matches) )
 		{
 			$allsongs[$matches[1]] = $line;
 			$current_song = $matches[1];
