@@ -40,7 +40,9 @@ function toc( $sort ){
 	{
 		//Error
 	}
-	$toc = '<form><input type="text" id="toc-filter" placeholder="Filter by song title"/></form>';
+	$toc = '';
+	$toc .= '<p>Sort by: <a href="?sort=default">default</a>, <a href="?sort=title">title</a>, <a href="?sort=verse">verse</a></p>';
+	$toc .= '<form><input type="text" id="toc-filter" placeholder="Filter by song title"/></form>';
 	$toc .= '<ul id="toc">';
 	if ( $sort ){
 		include 'sort.php';
