@@ -9,10 +9,9 @@
  * @brief Go through the file inputfile.txt and return each song with a link to it.
  */
 function toc(){
-	$toc = '';
-	$toc .= '<form><input type="text" id="toc-filter" placeholder="Filter by song title"/></form>';
-	$toc .= '<ul id="toc">';
 	$handle = fopen("inputfile.txt", "r");
+	$entries = array();
+	$number = 0;
 	if ( $handle ){while (($line = fgets($handle)) !== false)
 	{
 		// Fix weird apostrophe errors
@@ -22,44 +21,41 @@ function toc(){
 		$matches = array();
 		if( preg_match("(^(X?C?B?\d+)\. )", $line, $matches))
 		{
-			$toc .= "<li><a href=?song=$matches[1]>" . $line . "</a>";
+			$number = $matches[1];
+			$entries[$number] = array( 'title' => preg_replace("(^(X?C?B?\d+)\. )",'',$line) );
+			$entries[$number]['number'] = $number;
 		}
-		if( preg_match("/^{Verse: ?(.*)}/i", $line, $matches)) $toc .= " ($matches[1])";
-		if( preg_match("/^{Key: ?(.*)}/i", $line, $matches)) $toc .= " ($matches[1])";
-		if( preg_match("(^{p\d+(\(\S\S?\S?\))?})", $line)) $toc .= " (Reviewed)";
-		if( preg_match( "/\{p?\d*\((.+m?)\)\}/", $line, $matches) ) $toc .= " ($matches[1])";
+		if( preg_match("/^{.?Verse: ?(.*)}/i", $line, $matches)){
+			if (isset($entries[$number]['verse'])){
+				$entries[$number]['verse'] .= ", $matches[1]";}
+			else { $entries[$number]['verse'] = $matches[1];}
+		}
+		if( preg_match("/^{Key: ?(.*)}/i", $line, $matches)){
+			$entries[$number]['key'] = $matches[1];}
+		if( preg_match( "/\{p?\d*\((.+m?)\)\}/", $line, $matches) ){
+			$entries[$number]['key'] = $matches[1];}
 
 	}fclose($handle);}
 	else
 	{
 		//Error
 	}
+	$toc = '<form><input type="text" id="toc-filter" placeholder="Filter by song title"/></form>';
+	$toc .= '<ul id="toc">';
+	foreach( $entries as $item ){
+		$toc .= tocentry($item);
+	}
+
 	$toc .= '</ul>';
 	return $toc;
 }
 
-function refToNum( $ref )
-{
-	$number = 0;
-	$matches = array();
-	if ( preg_match( "/(\w+).?\s*(\d+)?/", $ref, $matches ))
-	{
-		if ( isset($matches[1]) )
-		{
-			switch (strtolower($matches[1])) {
-				case 'gen': $number+=100000;break;
-				case 'ex': $number +=200000;break;
-				case 'rev':
-					$number += 6600000;
-					break;
-				
-				default:
-					$number += 0;
-					break;
-			}
-		}
-	}
-	return $number;
+function tocentry( $item ){
+	$output = "<li><a href=?song=$item[number]>$item[number]. $item[title]</a>";
+	if ( $item['verse'] ){ $output .= "($item[verse])"; }
+	if ( $item['key'] ){ $output .= "($item[key])"; }
+
+	return $output;
 }
 
 /**
