@@ -7,8 +7,8 @@ function tocKeysort( $a, $b ){
 }
 
 function tocTitleSort( $a, $b ){
-	$aTitle = $a['title'];
-	$bTitle = $b['title'];
+	$aTitle = strtolower($a['title']);
+	$bTitle = strtolower($b['title']);
 	return strcmp( $aTitle, $bTitle );
 }
 
