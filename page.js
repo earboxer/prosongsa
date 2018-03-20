@@ -99,12 +99,12 @@ function zj_transparray( transp )
 
 function transpadd( fromkey, integer )
 {
-	var chords = array_flip( [ "C","C#","D","D#","E","F","F#","G","G#","A","A#","B" ]);
-	chords["Db"] = chords["C#"];
-	chords["Eb"] = chords["D#"];
-	chords["Gb"] = chords["F#"];
-	chords["Ab"] = chords["G#"];
-	chords["Bb"] = chords["A#"];
+	var chords = {C:0, Db:1, D:2, Eb:3, E:4, F:5, Gb:6, G:7, Ab:8, A:9, Bb:10, B:11};
+	chords["C#"] = chords["Db"];
+	chords["D#"] = chords["Eb"];
+	chords["F#"] = chords["Gb"];
+	chords["G#"] = chords["Ab"];
+	chords["A#"] = chords["Bb"];
 	var ochords = [ "C","Db","D","Eb","E","F","Gb","G","Ab","A","Bb","B" ];
 
 	var val = ochords[(parseInt(chords[fromkey]) + integer + 24)%12];

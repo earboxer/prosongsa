@@ -97,6 +97,11 @@ include 'page.php';
 ?>
 <br/><br><br>
 All songs are owned by their respective copyright holders. No infringement intended.
+<br>
+Powered by <a href='https://github.com/earboxer/prosongsa'>Prosongsa</a>.
+Suggest features <a href='https://github.com/earboxer/prosongsa/issues'>here</a>.
+<br>
+Licensed under the <a href='LICENSE'></a>. View source <a href='source.php'>here</a>.
 </div>
 
 <!-- <script type="text/javascript" src="../scripts/jqm.js"></script> -->
