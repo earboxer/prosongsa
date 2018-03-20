@@ -51,15 +51,21 @@ $bookOrder = array(
 	$aVerse = $a['verse'] ?: '';
 	$bVerse = $b['verse'] ?: '';
 	$matches = array();
-	$aBookKey = 3000;
-	$bBookKey = 3000;
+	$aBookKey = 100000;
+	$bBookKey = 100000;
 	if ( preg_match( '/^[0-9i]*\ ?[A-Z.]+/i', $aVerse, $matches ) ){
 		$aBook = $matches[0];
-		$aBookKey = array_search( $aBook, $bookOrder );
+		$aBookKey = array_search( $aBook, $bookOrder ) * 1000;
+		if ( preg_match( '/^.+?(\d+)/', $aVerse, $matches ) ){
+			$aBookKey += $matches[1];
+		}
 	}
 	if ( preg_match( '/^[0-9i]*\ ?[A-Z.]+/i', $bVerse, $matches ) ){
 		$bBook = $matches[0];
-		$bBookKey = array_search( $bBook, $bookOrder );
+		$bBookKey = array_search( $bBook, $bookOrder ) * 1000;
+		if ( preg_match( '/^.+?(\d+)/', $bVerse, $matches ) ){
+			$bBookKey += $matches[1];
+		}
 	}
 
 	return $aBookKey - $bBookKey;
