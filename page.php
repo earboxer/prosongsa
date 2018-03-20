@@ -8,7 +8,7 @@
 /**
  * @brief Go through the file inputfile.txt and return each song with a link to it.
  */
-function toc(){
+function toc( $sort ){
 	$handle = fopen("inputfile.txt", "r");
 	$entries = array();
 	$number = 0;
@@ -42,6 +42,15 @@ function toc(){
 	}
 	$toc = '<form><input type="text" id="toc-filter" placeholder="Filter by song title"/></form>';
 	$toc .= '<ul id="toc">';
+	if ( $sort ){
+		include 'sort.php';
+		if ( $sort == 'key' ){
+			usort( $entries, 'tocKeysort' );
+		}
+		else if ( $sort == 'verse' ){
+			usort( $entries, 'tocBooksort' );
+		}
+	}
 	foreach( $entries as $item ){
 		$toc .= tocentry($item);
 	}
