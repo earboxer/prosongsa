@@ -50,6 +50,9 @@ function toc( $sort ){
 		else if ( $sort == 'verse' ){
 			usort( $entries, 'tocBooksort' );
 		}
+		else if ( $sort == 'title' ){
+			usort( $entries, 'tocTitlesort' );
+		}
 	}
 	foreach( $entries as $item ){
 		$toc .= tocentry($item);

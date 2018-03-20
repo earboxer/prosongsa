@@ -6,6 +6,11 @@ function tocKeysort( $a, $b ){
 	return ord($aKey[0]) - ord($bKey[0]);
 }
 
+function tocTitleSort( $a, $b ){
+	$aTitle = $a['title'];
+	$bTitle = $b['title'];
+	return strcmp( $aTitle, $bTitle );
+}
 
 function tocBooksort( $a, $b ){
 $bookOrder = array(
