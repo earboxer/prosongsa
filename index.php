@@ -109,7 +109,6 @@ Licensed under the <a href='LICENSE'>GNU AGPLv3</a>. View source <a href='source
 integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
 crossorigin="anonymous"></script>
 <script src="toc-filter.js"></script>
-<script type="text/javascript" src="functions.js"></script>
 <script type="text/javascript" src="page.js"></script>
 <script type="text/javascript" src="jsonly.js"></script>
 <script type="text/javascript" src="ccharter/scripts/ccharter.js"></script>
