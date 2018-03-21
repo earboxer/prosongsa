@@ -99,7 +99,7 @@ function getChordFrets(chord)
 	chordd = chordd.replace("Gb", "F#");
 	chordd = chordd.replace("Ab", "G#");
 	chordd = chordd.replace("Bb", "A#");
-	taco = chorddict[chordd];
+	taco = chordsDict[chordd][0];
 	if ( taco ) {
 		ChordCharter.drawChord("chordy", 30, 25, chord, taco);
 	} else {
