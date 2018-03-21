@@ -112,6 +112,6 @@ crossorigin="anonymous"></script>
 <script type="text/javascript" src="page.js"></script>
 <script type="text/javascript" src="jsonly.js"></script>
 <script type="text/javascript" src="ccharter/scripts/ccharter.js"></script>
-<script type="text/javascript" src="data/chords.js"></script>
+<script type="text/javascript" src="chordsdata/chords.js"></script>
   </body>
 </html>
