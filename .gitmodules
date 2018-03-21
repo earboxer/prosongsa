@@ -1,3 +1,6 @@
 [submodule "ccharter"]
 	path = ccharter
 	url = https://github.com/earboxer/ccharter.git
+[submodule "chordsdata"]
+	path = chordsdata
+	url = https://github.com/earboxer/chordsdata.git
