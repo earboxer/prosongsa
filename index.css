@@ -12,30 +12,27 @@ pre {
 .chord1,
 .chord-11,
 .chordDb {
-  color: #f7102c;
-  text-shadow: 1px 1px 1px black;
+  color: #ff0000;
 }
 .chord2,
 .chord-10,
 .chordD {
-  color: #ff6400;
+  color: #e75b28;
 }
 .chord3,
 .chord-9,
 .chordEb {
-  color: #fcb30f;
-  text-shadow: 1px 1px 1px black;
+  color: #ff6400;
 }
 .chord4,
 .chord-8,
 .chordE {
-  color: #c8c800;
+  color: #969600;
 }
 .chord5,
 .chord-7,
 .chordF {
-  color: #d0ff14;
-  text-shadow: 1px 1px 1px black;
+  color: #c8c800;
 }
 .chord6,
 .chord-6,
@@ -96,60 +93,57 @@ pre {
 .btn-Db {
   margin-top: 1em;
   color: white;
-  background-color: #f7102c;
-  border-color: #d5000a;
-  text-shadow: 1px 1px 1px black;
+  background-color: #ff0000;
+  border-color: #dd0000;
 }
 .btn-Db:hover {
   color: white;
-  background-color: #e6001b;
-  border-color: #c40000;
+  background-color: #ee0000;
+  border-color: #cc0000;
 }
 .btn-D {
+  margin-top: 1em;
+  color: white;
+  background-color: #e75b28;
+  border-color: #c53906;
+}
+.btn-D:hover {
+  color: white;
+  background-color: #d64a17;
+  border-color: #b42800;
+}
+.btn-Eb {
   margin-top: 1em;
   color: white;
   background-color: #ff6400;
   border-color: #dd4200;
 }
-.btn-D:hover {
+.btn-Eb:hover {
   color: white;
   background-color: #ee5300;
   border-color: #cc3100;
 }
-.btn-Eb {
+.btn-E {
   margin-top: 1em;
   color: white;
-  background-color: #fcb30f;
-  border-color: #da9100;
-  text-shadow: 1px 1px 1px black;
+  background-color: #969600;
+  border-color: #747400;
 }
-.btn-Eb:hover {
+.btn-E:hover {
   color: white;
-  background-color: #eba200;
-  border-color: #c98000;
+  background-color: #858500;
+  border-color: #636300;
 }
-.btn-E {
+.btn-F {
   margin-top: 1em;
   color: white;
   background-color: #c8c800;
   border-color: #a6a600;
 }
-.btn-E:hover {
+.btn-F:hover {
   color: white;
   background-color: #b7b700;
   border-color: #959500;
-}
-.btn-F {
-  margin-top: 1em;
-  color: white;
-  background-color: #d0ff14;
-  border-color: #aedd00;
-  text-shadow: 1px 1px 1px black;
-}
-.btn-F:hover {
-  color: white;
-  background-color: #bfee03;
-  border-color: #9dcc00;
 }
 .btn-Gb {
   margin-top: 1em;
