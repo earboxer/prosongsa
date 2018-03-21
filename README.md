@@ -14,6 +14,12 @@
 	(see `inputfile.example.txt` for example format).
 * Navigate to the page where index.php is being served from.
 
+* `cd chordsdata && ./commands.sh` to create the data files
+
+To update this repository
+
+* `git pull && git submodule update && cd chordsdata && ./commands.sh`
+
 ## Acknowledgements
 
 * Github user [mzarillo](https://github.com/mzarillo) for
