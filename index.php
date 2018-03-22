@@ -1,3 +1,10 @@
+<?php
+$theme = $_COOKIE['theme'] ?? 'light';
+if ( isset( $_GET['theme'] ) ){
+	$theme = $_GET['theme'];
+	setcookie( 'theme', $theme, time()+60*60*24*30 );
+}
+?>
 <!--
 index.php contains the main html used for creating the page.
 Author: Zach DeCook
@@ -11,7 +18,12 @@ Author: Zach DeCook
 			crossorigin="anonymous">
 
 		<link rel="stylesheet" href="index.css" >
-		<link rel="stylesheet" href="theme.css" >
+		<link rel="stylesheet"
+			href=
+			<?php
+			if ( $theme == 'dark' ){echo "'theme-dark.css'";}
+			else {echo "'theme.css'";}
+			?> >
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=.65">
 		<title>Choruses and Hymns</title>
@@ -22,7 +34,15 @@ Author: Zach DeCook
 <header>
 
 	<div class = "col-xs-6 col-xs-offset-0 ">
-		<h3>Browse Songs</h3>
+		<h3>Prosongsa</h3>
+		Theme:
+		<?php
+		$query = preg_replace( '/&?theme=\w+/', '', $_SERVER['QUERY_STRING'] );
+		echo "<a class='lightbubble' href='?$query&theme=light'>&#x25cf;</a>
+			<a class='darkbubble' href='?$query&theme=dark'>&#x25cf;</a>";
+		?>
+		(Uses cookies :)
+		<br>
 		<a href="?song=0">Table of contents</a>
 		<form>
 			<input name='song' type='number' value='<?php echo isset($_GET['song']) ? $_GET['song'] : '' ?>'

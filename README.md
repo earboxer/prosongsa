@@ -23,6 +23,16 @@ git pull && git submodule update --init --recursive && git submodule update &&
  cd chordsdata && ./commands.sh
 ```
 
+## Developers
+
+Contributions are welcome! If you think you can do something to improve this project,
+feel free to make a pull request.
+
+### Notes
+
+The `index.css` file is made by
+`lessc --source-map-map-inline index.less > index.css`.
+
 ## Acknowledgements
 
 * Github user [mzarillo](https://github.com/mzarillo) for

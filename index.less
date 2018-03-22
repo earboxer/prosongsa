@@ -31,6 +31,20 @@ pre {
 	font-weight: bold;
 	font-size: 1em;
 }
+.darkbubble, .lightbubble {
+	font-size: 2em;
+}
+.darkbubble:hover, .lightbubble:hover {
+	text-decoration: none;
+	text-shadow: 0 0 5px;
+}
+.darkbubble, .darkbubble:hover {
+	color: #001144;
+}
+.lightbubble, .lightbubble:hover {
+color: #CCDDFF;
+}
+
 .chordZ(@color: #BBB){
 	color: @color;
 	& when(hsvvalue(@color) > 95%) and (lightness(@color) > 51%){
