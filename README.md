@@ -18,7 +18,10 @@
 
 To update this repository
 
-* `git pull && git submodule update && cd chordsdata && ./commands.sh`
+```sh
+git pull && git submodule update --init --recursive && git submodule update &&
+ cd chordsdata && ./commands.sh
+```
 
 ## Acknowledgements
 
