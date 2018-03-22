@@ -1,10 +1,10 @@
 <!--
 index.php contains the main html used for creating the page.
+Author: Zach DeCook
 -->
 <!DOCTYPE html>
 <html>
 	<head>
-		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet"
 			href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
 			integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
@@ -91,7 +91,11 @@ All songs are owned by their respective copyright holders. No infringement inten
 Powered by <a href='https://github.com/earboxer/prosongsa'>Prosongsa</a>.
 Suggest features <a href='https://github.com/earboxer/prosongsa/issues'>here</a>.
 <br>
-Licensed under the <a href='LICENSE'>GNU AGPLv3</a>. View source <a href='source.php'>here</a>.
+Prosongsa software licensed under the <a href='LICENSE'>GNU AGPLv3</a>.
+View source <a href='source.php'>here</a>.
+<br>
+Using <a href='https://github.com/earboxer/chordsdata'>chordsdata</a>,
+licensed under the <a href='chordsdata/LICENSE'>GNU LGPLv3</a>.
 </footer>
 
 <script   src="https://code.jquery.com/jquery-1.12.4.min.js"
