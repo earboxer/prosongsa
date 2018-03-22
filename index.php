@@ -11,6 +11,7 @@ index.php contains the main html used for creating the page.
 			crossorigin="anonymous">
 
 		<link rel="stylesheet" href="index.css" >
+		<link rel="stylesheet" href="theme.css" >
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=.65">
 		<title>Choruses and Hymns</title>
@@ -27,7 +28,7 @@ index.php contains the main html used for creating the page.
 			<input name='song' type='number' value='<?php echo isset($_GET['song']) ? $_GET['song'] : '' ?>'
 			min='0' max='169'
 			/>
- 			<input type="submit" value="Jump to song" />
+			<input class="btn btn-Z" type="submit" value="Jump to song" />
 		</form>
 	</div>
 

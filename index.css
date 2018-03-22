@@ -69,7 +69,7 @@ pre {
   color: #e7417c;
 }
 .btn-Z {
-  margin-top: 1em;
+  margin: .5em 0;
   color: white;
   background-color: #999;
   border-color: #777777;
@@ -80,7 +80,7 @@ pre {
   border-color: #666666;
 }
 .btn-C {
-  margin-top: 1em;
+  margin: .5em 0;
   color: white;
   background-color: #c00000;
   border-color: #9e0000;
@@ -91,7 +91,7 @@ pre {
   border-color: #8d0000;
 }
 .btn-Db {
-  margin-top: 1em;
+  margin: .5em 0;
   color: white;
   background-color: #ff0000;
   border-color: #dd0000;
@@ -102,7 +102,7 @@ pre {
   border-color: #cc0000;
 }
 .btn-D {
-  margin-top: 1em;
+  margin: .5em 0;
   color: white;
   background-color: #e75b28;
   border-color: #c53906;
@@ -113,7 +113,7 @@ pre {
   border-color: #b42800;
 }
 .btn-Eb {
-  margin-top: 1em;
+  margin: .5em 0;
   color: white;
   background-color: #ff6400;
   border-color: #dd4200;
@@ -124,7 +124,7 @@ pre {
   border-color: #cc3100;
 }
 .btn-E {
-  margin-top: 1em;
+  margin: .5em 0;
   color: white;
   background-color: #969600;
   border-color: #747400;
@@ -135,7 +135,7 @@ pre {
   border-color: #636300;
 }
 .btn-F {
-  margin-top: 1em;
+  margin: .5em 0;
   color: white;
   background-color: #c8c800;
   border-color: #a6a600;
@@ -146,7 +146,7 @@ pre {
   border-color: #959500;
 }
 .btn-Gb {
-  margin-top: 1em;
+  margin: .5em 0;
   color: white;
   background-color: #64c000;
   border-color: #429e00;
@@ -157,7 +157,7 @@ pre {
   border-color: #318d00;
 }
 .btn-G {
-  margin-top: 1em;
+  margin: .5em 0;
   color: white;
   background-color: #00dc00;
   border-color: #00ba00;
@@ -168,7 +168,7 @@ pre {
   border-color: #00a900;
 }
 .btn-Ab {
-  margin-top: 1em;
+  margin: .5em 0;
   color: white;
   background-color: #0096c8;
   border-color: #0074a6;
@@ -179,7 +179,7 @@ pre {
   border-color: #006395;
 }
 .btn-A {
-  margin-top: 1em;
+  margin: .5em 0;
   color: white;
   background-color: #0000c8;
   border-color: #0000a6;
@@ -190,7 +190,7 @@ pre {
   border-color: #000095;
 }
 .btn-Bb {
-  margin-top: 1em;
+  margin: .5em 0;
   color: white;
   background-color: #9600be;
   border-color: #74009c;
@@ -201,7 +201,7 @@ pre {
   border-color: #63008b;
 }
 .btn-B {
-  margin-top: 1em;
+  margin: .5em 0;
   color: white;
   background-color: #e7417c;
   border-color: #c51f5a;
