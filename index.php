@@ -27,6 +27,7 @@ Author: Zach DeCook
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=.65">
 		<title>Choruses and Hymns</title>
+		<meta name="theme-color" content="#001144">
 	</head>
 
 <body class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
