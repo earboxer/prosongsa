@@ -69,18 +69,14 @@ $(".tabs").click(function(e) {
 
 function show_tab( chord )
 {
-	var canvas = $("#chordy")[0];
+	var canvas = $("#guitarregion")[0];
+	var context = canvas.getContext('2d');
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	var canvas = $("#ukuleleregion")[0];
 	var context = canvas.getContext('2d');
 	context.clearRect(0, 0, canvas.width, canvas.height);
 
 	getChordFrets(chord);
-
-/*
-	var img = "<img class='myimage' src='chordimages/" + chord + ".png'/>";
-	$("#chordarea").append(img);
-	$(".myimage").error(function(){
-		$(this).hide();
-	});*/
 }
 
 function getChordFrets(chord)
@@ -91,7 +87,7 @@ function getChordFrets(chord)
 	chord = chord.replace("sus", "s");
 	chord = chord.replace("s4", "s");
 	chord = chord.replace("s", "sus");
-	chord = chord.replace("7sus", "sus7");	
+	chord = chord.replace("7sus", "sus7");
 	chord = chord.replace("mj7", "maj7");
 	var chordd = chord;
 	chordd = chordd.replace("Db", "C#");
@@ -99,15 +95,19 @@ function getChordFrets(chord)
 	chordd = chordd.replace("Gb", "F#");
 	chordd = chordd.replace("Ab", "G#");
 	chordd = chordd.replace("Bb", "A#");
-	taco = chordsDict[chordd][0];
-	if ( taco ) {
-		ChordCharter.drawChord("chordy", 30, 25, chord, taco);
-	} else {
-		//Cross-origin stuff
-		/*var url = "http://jguitar.com/chordsearch?chordsearch="+chord+"&labels=none&fretSpan=4";
-		$.get(url, function(data, status){
-			$("#messages").prepend("something something gotten");
-		});*/
-		$("#messages").prepend("Couldn't find a chord for '"+ chord +"'");
+
+	try{
+		guitarTab = chordsDict[chordd][0];
+		ChordCharter.drawChord( "guitarregion", 30, 25, chord, guitarTab );
+	}
+	catch(target){
+		$("#messages").prepend("No guitar tab for '" + chord + "'");
+	}
+	try{
+		ukuleleTab = ukulelechordsDict[chordd][0];
+		ChordCharter.drawChord( "ukuleleregion", 30, 25, chord, ukuleleTab );
+	}
+	catch(target){
+		$("#messages").prepend("No ukulele tab for '" + chord + "'");
 	}
 }

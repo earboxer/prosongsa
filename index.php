@@ -55,7 +55,8 @@ Author: Zach DeCook
 
 	<div class = "col-xs-6 col-xs-offset-0 ">
 		<div id="chordarea">
-			<canvas id='chordy' width="100" height="100"/>
+			<canvas id='guitarregion' width="100" height="100"></canvas>
+			<canvas id='ukuleleregion' width="100" height="100"></canvas>
 		</div>
 		<i>Experimental: Click on a chord to view guitar tablature</i>
 		<div id="messages"></div>
@@ -128,5 +129,6 @@ crossorigin="anonymous"></script>
 <script type="text/javascript" src="jsonly.js"></script>
 <script type="text/javascript" src="ccharter/scripts/ccharter.js"></script>
 <script type="text/javascript" src="chordsdata/chords.js"></script>
+<script type="text/javascript" src="chordsdata/ukulelechords.js"></script>
   </body>
 </html>
