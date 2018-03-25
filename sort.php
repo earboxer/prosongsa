@@ -12,8 +12,7 @@ function tocTitleSort( $a, $b ){
 	return strcmp( $aTitle, $bTitle );
 }
 
-function tocBooksort( $a, $b ){
-$bookOrder = array(
+define( "BOOK_ORDER", array(
 'Genesis',
 'Exodus',
 'Numbers',
@@ -52,22 +51,24 @@ $bookOrder = array(
 'Revelation',
 'Revelations',
 'Rev.',
-);
-	$aVerse = $a['verse'] ?: '';
-	$bVerse = $b['verse'] ?: '';
+) );
+
+function tocBooksort( $a, $b ){
+	$aVerse = isset( $a['verse'] ) ? $a['verse'] : '';
+	$bVerse = isset( $b['verse'] ) ? $b['verse'] : '';
 	$matches = array();
 	$aBookKey = 100000;
 	$bBookKey = 100000;
 	if ( preg_match( '/^[0-9i]*\ ?[A-Z.]+/i', $aVerse, $matches ) ){
 		$aBook = $matches[0];
-		$aBookKey = array_search( $aBook, $bookOrder ) * 1000;
+		$aBookKey = array_search( $aBook, BOOK_ORDER ) * 1000;
 		if ( preg_match( '/^.+?(\d+)/', $aVerse, $matches ) ){
 			$aBookKey += $matches[1];
 		}
 	}
 	if ( preg_match( '/^[0-9i]*\ ?[A-Z.]+/i', $bVerse, $matches ) ){
 		$bBook = $matches[0];
-		$bBookKey = array_search( $bBook, $bookOrder ) * 1000;
+		$bBookKey = array_search( $bBook, BOOK_ORDER ) * 1000;
 		if ( preg_match( '/^.+?(\d+)/', $bVerse, $matches ) ){
 			$bBookKey += $matches[1];
 		}
