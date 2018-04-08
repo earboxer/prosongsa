@@ -45,6 +45,13 @@ pre {
 color: #CCDDFF;
 }
 
+.incomplete a{
+	color: #888;
+}
+.incomplete:after{
+	content: " (incomplete)";
+}
+
 .chordZ(@color: #BBB){
 	color: @color;
 	& when(hsvvalue(@color) > 95%) and (lightness(@color) > 51%){

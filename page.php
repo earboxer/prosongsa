@@ -65,7 +65,11 @@ function toc( $sort ){
 }
 
 function tocentry( $item ){
-	$output = "<li><a href=?song=$item[number]>$item[number]. $item[title]</a>";
+	$class = '';
+	if ( ! isset( $item['key'] ) ){
+		$class = 'incomplete';
+	}
+	$output = "<li class='$class'><a href=?song=$item[number]>$item[number]. $item[title]</a>";
 	if ( $item['verse'] ){ $output .= "($item[verse])"; }
 	if ( $item['key'] ){ $output .= "($item[key])"; }
 
