@@ -125,10 +125,10 @@ licensed under the <a href='chordsdata/LICENSE'>GNU LGPLv3</a>.
 integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
 crossorigin="anonymous"></script>
 <script src="toc-filter.js"></script>
+<script type="text/javascript" src="chordsdata/chords.js"></script>
+<script type="text/javascript" src="chordsdata/ukulelechords.js"></script>
 <script type="text/javascript" src="page.js"></script>
 <script type="text/javascript" src="jsonly.js"></script>
 <script type="text/javascript" src="ccharter/scripts/ccharter.js"></script>
-<script type="text/javascript" src="chordsdata/chords.js"></script>
-<script type="text/javascript" src="chordsdata/ukulelechords.js"></script>
   </body>
 </html>

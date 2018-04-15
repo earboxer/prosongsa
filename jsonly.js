@@ -6,6 +6,17 @@
 $('#transp').change( do_transpose );
 var lastTransp = parseInt($('#transp').val());
 
+var guitarObj = {
+	name: 'guitar',
+	dict: chordsDict,
+	region: 'guitarregion',
+}
+var ukeObj = {
+	name: 'ukulele',
+	dict: ukulelechordsDict,
+	region: 'ukuleleregion',
+}
+
 function do_transpose()
 {
 	var transp = parseInt($('#transp').val());
@@ -90,24 +101,36 @@ function getChordFrets(chord)
 	chord = chord.replace("7sus", "sus7");
 	chord = chord.replace("mj7", "maj7");
 	var chordd = chord;
+	chordd = chordd.replace("/A","/a");
+	chordd = chordd.replace("/B","/b");
+	chordd = chordd.replace("/C","/c");
+	chordd = chordd.replace("/D","/d");
+	chordd = chordd.replace("/E","/e");
+	chordd = chordd.replace("/F","/f");
+	chordd = chordd.replace("/G","/g");
 	chordd = chordd.replace("Db", "C#");
 	chordd = chordd.replace("Eb", "D#");
 	chordd = chordd.replace("Gb", "F#");
 	chordd = chordd.replace("Ab", "G#");
 	chordd = chordd.replace("Bb", "A#");
 
+	plotChord(chord,chordd,guitarObj)
+	plotChord(chord,chordd,ukeObj)
+}
+
+function plotChord(chord, chordd, obj){
 	try{
-		guitarTab = chordsDict[chordd][0];
-		ChordCharter.drawChord( "guitarregion", 30, 25, chord, guitarTab );
+		tab = obj.dict[chordd][0];
+		ChordCharter.drawChord( obj.region, 30, 25, chord, tab );
 	}
 	catch(target){
-		$("#messages").prepend("No guitar tab for '" + chord + "'");
+		$("#messages").prepend("No "+obj.name+" tab for '" + chord + "'. ");
+
+		// Try it without the base note.
+		if( chordd.replace(/\/.*/,"") != chordd)
+		{
+			plotChord( chord.replace(/\/.*/,""), chordd.replace(/\/.*/,""), obj);
+		}
 	}
-	try{
-		ukuleleTab = ukulelechordsDict[chordd][0];
-		ChordCharter.drawChord( "ukuleleregion", 30, 25, chord, ukuleleTab );
-	}
-	catch(target){
-		$("#messages").prepend("No ukulele tab for '" + chord + "'");
-	}
+
 }
