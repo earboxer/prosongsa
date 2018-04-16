@@ -10,11 +10,17 @@ var guitarObj = {
 	name: 'guitar',
 	dict: chordsDict,
 	region: 'guitarregion',
+	chord: '',
+	chordd: '',
+	number: 0,
 }
 var ukeObj = {
 	name: 'ukulele',
 	dict: ukulelechordsDict,
 	region: 'ukuleleregion',
+	chord: '',
+	chordd: '',
+	number: 0,
 }
 
 function do_transpose()
@@ -122,6 +128,9 @@ function plotChord(chord, chordd, obj){
 	try{
 		tab = obj.dict[chordd][0];
 		ChordCharter.drawChord( obj.region, 30, 25, chord, tab );
+		obj.chord = chord;
+		obj.chordd = chordd;
+		obj.number = 0;
 	}
 	catch(target){
 		$("#messages").prepend("No "+obj.name+" tab for '" + chord + "'. ");
@@ -133,4 +142,14 @@ function plotChord(chord, chordd, obj){
 		}
 	}
 
+}
+
+function cycle(obj){
+	var canvas = $("#"+obj.region)[0];
+	var context = canvas.getContext('2d');
+	context.clearRect(0, 0, canvas.width, canvas.height);
+
+	obj.number = (obj.number + 1) % obj.dict[obj.chordd].length
+	tab = obj.dict[obj.chordd][obj.number]
+	ChordCharter.drawChord( obj.region, 30, 25, obj.chord +"("+obj.number + ")", tab );
 }

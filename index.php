@@ -55,8 +55,8 @@ Author: Zach DeCook
 
 	<div class = "col-xs-6 col-xs-offset-0 ">
 		<div id="chordarea">
-			<canvas id='guitarregion' width="100" height="100"></canvas>
-			<canvas id='ukuleleregion' width="100" height="100"></canvas>
+			<canvas id='guitarregion' width="100" height="100" onclick="cycle(guitarObj);"></canvas>
+			<canvas id='ukuleleregion' width="100" height="100" onclick="cycle(ukeObj);"></canvas>
 		</div>
 		<i>Experimental: Click on a chord to view guitar tablature</i>
 		<div id="messages"></div>
