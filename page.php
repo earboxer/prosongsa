@@ -274,13 +274,14 @@ function chordline($line)
 
 	$badtokens = 0;
 	$ambtokens = 0;
+	$goodtokens = 0;
 	foreach ($tokens as $token) {
-		if( in_array( substr($token, 0,2), $chords ) ) return TRUE;
+		if( in_array( substr($token, 0,2), $chords ) ) $goodtokens++;
 		else if ( in_array( substr( $token, 0,2), $ambiguous) ) $ambtokens++;
 		else if( $badtokens > 10 ) return FALSE;
 		else $badtokens++;
 	}
-	return $ambtokens >= $badtokens;
+	return ($goodtokens *2)+ $ambtokens >= $badtokens;
 }
 
 function normalizechords($line, $space=TRUE)
