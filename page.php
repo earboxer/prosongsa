@@ -140,7 +140,7 @@ function load_song( $number, $transp = 0 )
 				}
 				$class = ! isset( $songKey ) ? "tabs chord$transp" : "tabs chord" . transpadd( $songKey, $transp );
 				$line = str_replace(
-					array('{','}'), 
+					array('{','}'),
 					array('</b>{', "}<b class='$class'>" ),
 					$line );
 
@@ -313,12 +313,15 @@ function z_transpose2( $line, $transp )
 	$newchords = z_transparray( $transp );
 	$newline = '';
 	$space = 0; ///@< Spaces that need to be added or removed.
+	$inCurly = 0;
 	for($i = 0; $i < strlen($line); $i++)
 	{
 		$char = $line[$i];
 		$nchar = isset($line[$i+1]) ? $line[$i+1] : '';
 		$upchar = strtoupper($line[$i]);
 		$cval = ord($upchar);
+		if ( $char == '}' && $inCurly ){ $inCurly = 0;}
+		if ( $char == '{' || $inCurly ){ $inCurly = 1; $newline .= $char; continue;}
 		// A-G
 		if( $cval <= 71 && $cval >=65 )
 		{
