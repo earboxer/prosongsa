@@ -25,15 +25,17 @@ function toc( $sort ){
 			$entries[$number] = array( 'title' => preg_replace("(^(X?C?B?\d+)\. )",'',$line) );
 			$entries[$number]['number'] = $number;
 		}
-		if( preg_match("/^{.?Verse: ?(.*)}/i", $line, $matches)){
+		else if( preg_match("/^{.?Verse: ?(.*)}/i", $line, $matches)){
 			if (isset($entries[$number]['verse'])){
 				$entries[$number]['verse'] .= ", $matches[1]";}
 			else { $entries[$number]['verse'] = $matches[1];}
 		}
-		if( preg_match("/^{Key: ?(.*)}/i", $line, $matches)){
+		else if( preg_match("/^{Key: ?(.*)}/i", $line, $matches)){
 			$entries[$number]['key'] = $matches[1];}
-		if( preg_match( "/\{p?\d*\((.+m?)\)\}/", $line, $matches) ){
+		else if( preg_match( "/\{p?\d*\((.+m?)\)\}/", $line, $matches) ){
 			$entries[$number]['key'] = $matches[1];}
+		else if( preg_match( "/^-(([A-Za-z.]+ ?)+)/", $line, $matches) ){
+			$entries[$number]['author'] = $matches[1];}
 
 	}fclose($handle);}
 	else
@@ -41,7 +43,12 @@ function toc( $sort ){
 		//Error
 	}
 	$toc = '';
-	$toc .= '<p>Sort by: <a href="?sort=default">default</a>, <a href="?sort=title">title</a>, <a href="?sort=verse">verse</a></p>';
+	$toc .= '<p>Sort by: ';
+	foreach( array( 'default', 'title', 'author', 'verse' ) as $thing ){
+		$disabled = ($sort == $thing) ? 'disabled' : '';
+		$toc .="<a class='btn btn-Z $disabled' href='?sort=$thing'>$thing</a>";
+	}
+	$toc .= '</p>';
 	$toc .= '<form><input type="text" id="toc-filter" placeholder="Filter by song title"/></form>';
 	$toc .= '<ul id="toc">';
 	if ( $sort ){
@@ -54,6 +61,9 @@ function toc( $sort ){
 		}
 		else if ( $sort == 'title' ){
 			usort( $entries, 'tocTitlesort' );
+		}
+		else if ( $sort == 'author' ){
+			usort( $entries, 'tocAuthorsort' );
 		}
 	}
 	foreach( $entries as $item ){
@@ -70,6 +80,7 @@ function tocentry( $item ){
 		$class = 'incomplete';
 	}
 	$output = "<li class='$class'><a href=?song=$item[number]>$item[number]. $item[title]</a>";
+	if ( $item['author'] ){$output .= "($item[author])";}
 	if ( $item['verse'] ){ $output .= "($item[verse])"; }
 	if ( $item['key'] ){ $output .= "($item[key])"; }
 

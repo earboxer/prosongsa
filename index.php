@@ -96,7 +96,7 @@ include 'page.php';
 	$song_number = isset( $_GET['song'] ) ? $_GET['song'] : '';
 	if( ! $song_number )
 	{
-		$sort = '';
+		$sort = 'default';
 		if ( isset( $_GET['sort'] ) ) $sort = $_GET['sort'];
 		echo toc($sort);
 	}

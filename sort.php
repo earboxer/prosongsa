@@ -12,6 +12,12 @@ function tocTitleSort( $a, $b ){
 	return strcmp( $aTitle, $bTitle );
 }
 
+function tocAuthorSort( $a, $b ){
+	$aTitle = strtolower($a['author']) ?: 'z';
+	$bTitle = strtolower($b['author']) ?: 'z';
+	return strcmp( $aTitle, $bTitle );
+}
+
 define( "BOOK_ORDER", array(
 'Genesis',
 'Exodus',
