@@ -124,6 +124,7 @@ licensed under the <a href='chordsdata/LICENSE'>GNU LGPLv3</a>.
 <script   src="https://code.jquery.com/jquery-1.12.4.min.js"
 integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
 crossorigin="anonymous"></script>
+<script type="text/javascript" src="index.js"></script>
 <script src="toc-filter.js"></script>
 <script type="text/javascript" src="chordsdata/chords.js"></script>
 <script type="text/javascript" src="chordsdata/ukulelechords.js"></script>
