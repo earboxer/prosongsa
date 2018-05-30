@@ -5,12 +5,12 @@
 @Orange: rgb(255,100,0);
 @Banana: rgb(150,150,0);//Going into retirement.
 @Mango: rgb(252, 179, 15);// also too bright
-@Lemon: rgb(200,200,0);//This color is not accurately named.// and too bright...ish
+@Lemon: rgb(180,180,0);//This color is not accurately named.
 @Pear: rgb(208, 255, 20);//Too bright to see!
 @Green-Apple: rgb(100,192,0);//Going into retirement.
 @Lime: rgb(0,220,0);
 @Blue-Razzberry: rgb(0,150,200);
-@Blueberry: rgb(0,0,200);
+@Blueberry: rgb(55,55,255);
 @Blackberry: rgb(50,0,100);//Going into retirement.
 @Grape: rgb(150,0,190);
 @Raspberry: rgb(231, 65, 124);
@@ -55,7 +55,7 @@ color: #CCDDFF;
 .chordZ(@color: #BBB){
 	color: @color;
 	& when(hsvvalue(@color) > 95%) and (lightness(@color) > 51%){
-		text-shadow: 1px 1px 1px black;
+		//text-shadow: 1px 1px 1px black;
 	}
 }
 .tabs, .chord0, .chordC{/*Red Apple*/
