@@ -5,7 +5,7 @@
 * Have the ability to serve php files.
 * Clone this repository, including the submodules, into such a place.
 
-	```git clone --recursive https://github.com/earboxer/prosongsa.git```
+	```git clone --recursive https://gitlab.com/earboxer/prosongsa.git```
 
 	If you've already cloned without the submodules, you can use
 	`git submodule update --init --recursive`.

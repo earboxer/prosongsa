@@ -3,4 +3,4 @@
 	url = https://github.com/earboxer/ccharter.git
 [submodule "chordsdata"]
 	path = chordsdata
-	url = https://github.com/earboxer/chordsdata.git
+	url = https://gitlab.com/earboxer/chordsdata.git
