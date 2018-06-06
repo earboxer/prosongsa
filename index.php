@@ -111,13 +111,13 @@ include 'page.php';
 <footer>
 All songs are owned by their respective copyright holders. No infringement intended.
 <br>
-Powered by <a href='https://github.com/earboxer/prosongsa'>Prosongsa</a>.
-Suggest features <a href='https://github.com/earboxer/prosongsa/issues'>here</a>.
+Powered by <a href='https://gitlab.com/earboxer/prosongsa'>Prosongsa</a>.
+Suggest features <a href='https://gitlab.com/earboxer/prosongsa/issues'>here</a>.
 <br>
 Prosongsa software licensed under the <a href='LICENSE'>GNU AGPLv3</a>.
 View source <a href='source.php'>here</a>.
 <br>
-Using <a href='https://github.com/earboxer/chordsdata'>chordsdata</a>,
+Using <a href='https://gitlab.com/earboxer/chordsdata'>chordsdata</a>,
 licensed under the <a href='chordsdata/LICENSE'>GNU LGPLv3</a>.
 </footer>
 
