@@ -1,3 +1,7 @@
+# Moved development to GitLab
+
+## https://gitlab.com/earboxer/prosongsa
+
 # Prosongsa
 
 ## Setup
